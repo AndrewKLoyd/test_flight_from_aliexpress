@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:kinda_test_fairy/domain/entities/app_entity.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/entities/app_entity.dart';
 
 final class AppDto extends AppEntity {
   AppDto({

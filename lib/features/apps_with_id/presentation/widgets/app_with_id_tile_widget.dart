@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kinda_test_fairy/features/all_apps/domain/entities/app_entity.dart';
+import 'package:kinda_test_fairy/features/apps_with_id/domain/entities/app_with_id.dart';
 
-class AppTile extends StatelessWidget {
-  const AppTile({super.key, required this.appEntity});
-  final AppEntity appEntity;
+class AppWithIdTileWidget extends StatelessWidget {
+  const AppWithIdTileWidget({super.key, required this.app});
+  final AppWithId app;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: () => context.goNamed(
-        "apps-with-id",
-        pathParameters: {"appId": appEntity.appId},
+        "app-build",
+        pathParameters: {"appId": app.appId},
+        queryParameters: {
+          "versionCode": app.versionCode,
+          "buildNumber": app.buildNumber.toString(),
+        },
       ),
       child: Card(
         child: Padding(
@@ -26,22 +30,22 @@ class AppTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    appEntity.appName,
+                    app.appName,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
 
                   Text(
-                    "${appEntity.currentVersionCode}(${appEntity.currentBuildNumber})",
+                    "${app.versionCode}(${app.buildNumber})",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ],
               ),
               Text(
-                appEntity.appId,
+                app.appId,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
 
-              Text(appEntity.lastBuildReleased),
+              Text(app.description.toString()),
             ],
           ),
         ),

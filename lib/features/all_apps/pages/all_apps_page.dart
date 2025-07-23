@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kinda_test_fairy/features/all_apps/vms/all_apps_state.dart';
-import 'package:kinda_test_fairy/features/all_apps/vms/all_apps_view_model.dart';
+import 'package:kinda_test_fairy/core/widgets/core_scaffold.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/vms/all_apps_state.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/vms/all_apps_view_model.dart';
 import 'package:kinda_test_fairy/features/all_apps/widgets/app_tile.dart';
 
 class AllAppsPage extends StatelessWidget {
@@ -11,11 +12,9 @@ class AllAppsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Все приложения"),
-      ),
-      body: RefreshIndicator(
+    return CoreScaffold(
+      title: "Все приложения",
+      child: RefreshIndicator(
         onRefresh: _appsViewModel.getApps,
         child: ListenableBuilder(
           listenable: _appsViewModel,

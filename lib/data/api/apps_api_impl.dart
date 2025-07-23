@@ -6,9 +6,22 @@ final class AppsApiImpl implements AppsApi {
 
   AppsApiImpl({required Dio dio}) : _dio = dio;
   @override
-  Future<Response> getAllApps() async => await _dio.get("/apps");
+  Future<Response> getAllApps() => _dio.get("/apps");
 
   @override
-  Future<Response> getAppsWithAppId(String appId) async =>
-      await _dio.get("/apps/$appId");
+  Future<Response> getAppsWithAppId(String appId) => _dio.get("/apps/$appId");
+
+  @override
+  Future<Response> getBuild(
+    String appId,
+    String versionCode,
+    int buildNumber,
+  ) => _dio.get(
+    "/apps/$appId/build",
+    queryParameters: {
+      "appId": appId,
+      "versionCode": versionCode,
+      "buildNumber": buildNumber,
+    },
+  );
 }

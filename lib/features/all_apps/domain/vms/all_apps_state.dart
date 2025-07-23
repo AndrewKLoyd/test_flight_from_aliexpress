@@ -1,4 +1,4 @@
-import 'package:kinda_test_fairy/domain/entities/app_entity.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/entities/app_entity.dart';
 
 sealed class AllAppsState {
   const AllAppsState();

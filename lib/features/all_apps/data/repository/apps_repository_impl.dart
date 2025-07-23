@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:kinda_test_fairy/core/common/result.dart';
-import 'package:kinda_test_fairy/data/dtos/app_dto.dart';
+import 'package:kinda_test_fairy/features/all_apps/data/dtos/app_dto.dart';
 import 'package:kinda_test_fairy/domain/api/apps_api.dart';
-import 'package:kinda_test_fairy/domain/entities/app_entity.dart';
-import 'package:kinda_test_fairy/domain/repository/apps_repository.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/entities/app_entity.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/repository/apps_repository.dart';
 
 final class AppsRepositoryImpl implements AppsRepository {
   final AppsApi _appsApi;

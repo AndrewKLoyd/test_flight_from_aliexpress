@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kinda_test_fairy/core/common/result.dart';
-import 'package:kinda_test_fairy/domain/entities/app_entity.dart';
-import 'package:kinda_test_fairy/domain/repository/apps_repository.dart';
-import 'package:kinda_test_fairy/features/all_apps/vms/all_apps_state.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/entities/app_entity.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/repository/apps_repository.dart';
+import 'package:kinda_test_fairy/features/all_apps/domain/vms/all_apps_state.dart';
 
 final class AllAppsViewModel extends ChangeNotifier {
   final AppsRepository _repo;
